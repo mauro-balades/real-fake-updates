@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <title>Real Fake OS updates!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .selection:hover svg {
+            transform: scale(1.3);
+        }
+
+        .selection:hover i {
+            transform: scale(1.3);
+        }
+
+        .selection > * {
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
 </head>
 <body>
-    hello there
+    <div class="flex h-screen overflow-hidden w-full">
+        <a class="w-1/2 h-full relative flex cursor-pointer selection items-center justify-center bg-[#0078D7] text-white" href="./windows.html">
+            <svg viewBox="0 0 128 128" class="w-20 h-20">
+                <path fill="#00ADEF" d="M126 1.637l-67 9.834v49.831l67-.534zM1.647 66.709l.003 42.404 50.791 6.983-.04-49.057zm56.82.68l.094 49.465 67.376 9.509.016-58.863zM1.61 19.297l.047 42.383 50.791-.289-.023-49.016z"></path>
+            </svg>
+        </a>
+        <a class="w-1/2 h-full relative flex cursor-pointer selection items-center justify-center bg-black text-white" href="./macos.html">
+            <i class="devicon-apple-original w-20 h-20 text-8xl"></i>
+        </a>
+    </div>
 </body>
 </html>

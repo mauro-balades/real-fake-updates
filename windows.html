@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <title>Real Fake OS updates!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+.loader {
+position: relative;
+}
+.loader .circle {
+position: absolute;
+width: 48px;
+height: 48px;
+opacity: 0;
+transform: rotate(225deg);
+animation-iteration-count: infinite;
+animation-name: orbit;
+animation-duration: 5.5s;
+}
+.loader .circle:after {
+content: '';
+position: absolute;
+width: 6px;
+height: 6px;
+border-radius: 5px;
+background: #fff;
+/* Pick a color */
+}
+.loader .circle:nth-child(2) {
+animation-delay: 240ms;
+}
+.loader .circle:nth-child(3) {
+animation-delay: 480ms;
+}
+.loader .circle:nth-child(4) {
+animation-delay: 720ms;
+}
+.loader .circle:nth-child(5) {
+animation-delay: 960ms;
+}
+@keyframes orbit {
+0% {
+transform: rotate(225deg);
+opacity: 1;
+animation-timing-function: ease-out;
+}
+7% {
+transform: rotate(345deg);
+animation-timing-function: linear;
+}
+30% {
+transform: rotate(455deg);
+animation-timing-function: ease-in-out;
+}
+39% {
+transform: rotate(690deg);
+animation-timing-function: linear;
+}
+70% {
+transform: rotate(815deg);
+opacity: 1;
+animation-timing-function: ease-out;
+}
+75% {
+transform: rotate(945deg);
+animation-timing-function: ease-out;
+}
+76% {
+transform: rotate(945deg);
+opacity: 0;
+}
+100% {
+transform: rotate(945deg);
+opacity: 0;
+}
+}
+    </style>
+</head>
+<body class="flex relative items-center h-screen flex-col justify-center cursor-none bg-[#005c9f] text-white">
+    <div class="loader mr-10" style="padding-top:2px;">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="text-2xl font-normal mt-24 text-center">
+        Working on updates <span id="percentage"></span>%
+        <br/>Don't turn off your PC. This will take a while.
+        <br/>
+    </div>
+    <span class="text-2xl font-normal mt-28 text-center" style="transform: translateY(700%);">
+        Your PC will restart several times.
+    </span>
+
+    <script>
+        window.onload = () => {
+            document.documentElement.requestFullscreen();
+
+            let x = Math.floor(Math.random() * 100);
+            document.getElementById('percentage').innerText = x;
+            setInterval(() => {
+                x += 1;
+                document.getElementById('percentage').innerText = x;
+                if (x == 100) x = Math.floor(Math.random() * 100);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
