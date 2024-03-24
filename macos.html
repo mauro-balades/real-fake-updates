@@ -26,9 +26,23 @@
     <progress class="w-1/5 h-1 mt-20 bg-black rounded-full" id="percentage" value="32" max="100"></progress>
 
     <script>
-        window.onload = () => {
-            document.documentElement.requestFullscreen();
 
+        function requestFullScreen(element) {
+            // Supports most browsers and their versions.
+            var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+            if (requestMethod) { // Native full screen.
+                requestMethod.call(element);
+            } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript !== null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+
+        window.onload = () => {
+            requestFullScreen(document.body);
             let x = Math.floor(Math.random() * 100);
             document.getElementById('percentage').value = x;
             setInterval(() => {
